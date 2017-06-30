@@ -15,8 +15,9 @@
 // })
 
 $(document).ready(function(){
-    $('#readout').text("hoi!");
     $('span').on('click', displayChar);
+    $('span').on('mouseover', addHighlight);
+    $('span').on('mouseleave', removeHighlight);
 
 
 
@@ -30,12 +31,13 @@ function displayChar(){
         $('#readout').append(chara);
         mathArray.push(chara);
         console.log('numeric');
+        console.log(chara)
     } 
     else if (chara == "c") {
         $('#readout').empty();
         mathArray.length = 0;
     } 
-    else if (id == "return"){
+    else if (id == "result"){
         compute();
         console.log('am end');
     }
@@ -44,8 +46,6 @@ function displayChar(){
         mathArray.push(chara)
         console.log('it worked');
     } 
-
-    
     else {
         console.log('not a num');
     }
@@ -56,7 +56,17 @@ var operators = ['+', '-', '*', '/'];
 //function for =, runs math (which is in array?) then displays onj #readout
 
 function compute(){
-    var mathString = toString(mathArray);
-    // var equate = Math.mathString;
+    var mathString = mathArray.join(" ");
     console.log(mathString);
+    var equate = eval(mathString);
+    console.log(equate);
+    $('#readout').text(equate);
+}
+
+//highlight buttons
+function addHighlight() {
+    $(this).addClass('highlightButtons');
+}
+function removeHighlight() {
+    $(this).removeClass('highlightButtons');
 }
