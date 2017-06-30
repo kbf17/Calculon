@@ -1,19 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function(){
-//     var span = document.getElementsByTagName('span');
-//     var readout = document.getElementById('readout');
-//     var spanVariable = span.innerText;
-//     console.log(span);
-//     var keys = document.getElementById("keys");
-
-//     keys.addEventListener("click", function(evt)  {
-//         if(evt.target.tagName === "SPAN") {
-//             console.log(evt.target.id);
-//             console.log
-//         }
-//     });
- 
-// })
-
 $(document).ready(function(){
     $('span').on('click', displayChar);
     $('span').on('mouseover', addHighlight);
@@ -24,6 +8,7 @@ $(document).ready(function(){
 
 })
 var mathArray = [];
+
 function displayChar(){
     var chara = $(this).text();
     var id = $(this).attr('id')
@@ -41,10 +26,10 @@ function displayChar(){
         compute();
         console.log('am end');
     }
-    else if (id == 'add', 'subtract', 'multiply', 'divide'){
+    else if (id == 'multiply', 'divide', 'add', 'subtract'){
         $('#readout').text(chara);
         mathArray.push(chara)
-        console.log('it worked');
+        console.log(id);
     } 
     else {
         console.log('not a num');
@@ -61,6 +46,7 @@ function compute(){
     var equate = eval(mathString);
     console.log(equate);
     $('#readout').text(equate);
+    mathArray = [];
 }
 
 //highlight buttons
