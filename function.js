@@ -56,7 +56,7 @@ var operators = ['+', '-', '*', '/'];
 //function for =, runs math (which is in array?) then displays onj #readout
 
 function compute(){
-    var mathString = mathArray.join(" ");
+    var mathString = mathArray.join("");
     console.log(mathString);
     var equate = eval(mathString);
     console.log(equate);
