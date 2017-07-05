@@ -2,8 +2,6 @@ $(document).ready(function(){
     $('span').on('click', displayChar);
     $('span').on('mouseover', addHighlight);
     $('span').on('mouseleave', removeHighlight);
-
-
 })
 var mathArray = [];
 
@@ -32,7 +30,6 @@ function displayChar(){
         else {
             console.log('not a num');
         }
-        console.log(mathArray);
  }
 
 // var operators = ['+', '-', '*', '/'];
